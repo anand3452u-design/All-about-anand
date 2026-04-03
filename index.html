@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All About Anand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            margin: 20px;
+        }
+        section {
+            padding: 20px;
+            border: 1px solid #fff;
+            margin: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+        input, textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #feb47b;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to All About Anand</h1>
+        <img src="profile.jpg" alt="Profile Image" style="border-radius: 50%; width: 150px; height: 150px;">
+        <nav>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section id="skills">
+        <h2>Skills</h2>
+        <table>
+            <tr><th>Skill</th><th>Level</th></tr>
+            <tr><td>HTML</td><td>Expert</td></tr>
+            <tr><td>CSS</td><td>Expert</td></tr>
+            <tr><td>JavaScript</td><td>Intermediate</td></tr>
+            <tr><td>React</td><td>Intermediate</td></tr>
+        </table>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Currently, I am working on various exciting projects. Stay tuned!</p>
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/anand3452u-design" class="fab fa-github" style="color: #fff;"> GitHub</a>
+        <a href="https://linkedin.com/in/anand3452u-design" class="fab fa-linkedin" style="color: #fff;"> LinkedIn</a>
+    </footer>
+</body>
+</html>
