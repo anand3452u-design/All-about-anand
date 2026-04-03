@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Web Page</title>
+    <title>All About Anand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,121 +14,444 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
         header {
-            background-color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 1rem 0;
+            padding: 2rem 0;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         nav {
-            background-color: #444;
-            padding: 0.5rem;
+            background-color: #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.7rem 1.5rem;
             margin: 0 0.5rem;
             display: inline-block;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
-            background-color: #555;
+            background-color: #667eea;
+            transform: translateY(-2px);
         }
 
         main {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
 
         section {
             background-color: white;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1, h2 {
-            color: #333;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        p {
             margin-bottom: 1rem;
+            line-height: 1.8;
         }
 
         button {
-            background-color: #007bff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 0.7rem 1.5rem;
+            padding: 0.8rem 2rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
         }
 
         button:hover {
-            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Image Styling */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #667eea;
+            display: block;
+            margin: 1rem auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            margin-top: 1rem;
+            color: #1e3c72;
+        }
+
+        input, textarea {
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #667eea;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #764ba2;
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* Video Styling */
+        video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            display: block;
+            margin: 1rem auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table th {
+            background-color: #667eea;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background-color: #f5f5f5;
         }
 
         footer {
-            background-color: #333;
+            background-color: #1a1a1a;
             color: white;
             text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-text {
+            margin-bottom: 1rem;
+        }
+
+        /* Icons in lists */
+        .icon-list {
+            list-style: none;
+        }
+
+        .icon-list li {
+            display: flex;
+            align-items: center;
+            margin: 0.8rem 0;
+        }
+
+        .icon-list i {
+            color: #667eea;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav a {
+                padding: 0.5rem 1rem;
+                margin: 0.3rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Web Page</h1>
+        <h1>👋 All About Anand</h1>
+        <p class="header-subtitle">Web Developer | Designer | Tech Enthusiast</p>
     </header>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">🏠 Home</a>
+        <a href="#about">👤 About</a>
+        <a href="#skills">⚡ Skills</a>
+        <a href="#projects">💼 Projects</a>
+        <a href="#contact">📧 Contact</a>
     </nav>
 
     <main>
+        <!-- Home Section -->
         <section id="home">
-            <h2>Home</h2>
-            <p>Hello! This is a simple web page built with HTML, CSS, and JavaScript. Welcome to my site!</p>
-            <button onclick="showMessage()">Click Me</button>
+            <h2>🎯 Welcome</h2>
+            <img src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-img">
+            <p>Hi! I'm Anand, a passionate web developer and designer. I love building beautiful, functional websites and exploring new technologies.</p>
+            <button onclick="showWelcomeMessage()">Learn More About Me</button>
         </section>
 
+        <!-- About Section -->
         <section id="about">
-            <h2>About</h2>
-            <p>This page demonstrates the basics of web development with:</p>
-            <ul>
-                <li><strong>HTML</strong> - Structure</li>
-                <li><strong>CSS</strong> - Styling</li>
-                <li><strong>JavaScript</strong> - Interactivity</li>
+            <h2>👤 About Me</h2>
+            <p>I am a dedicated web developer with experience in:</p>
+            <ul class="icon-list">
+                <li><i class="fas fa-check-circle"></i> <strong>Frontend Development</strong> - HTML, CSS, JavaScript</li>
+                <li><i class="fas fa-check-circle"></i> <strong>UI/UX Design</strong> - Creating beautiful user experiences</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Web Optimization</strong> - Fast and responsive websites</li>
             </ul>
+            <p>I'm passionate about learning new technologies and building projects that make a difference.</p>
         </section>
 
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>⚡ My Skills</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Skills</th>
+                        <th>Proficiency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Frontend</strong></td>
+                        <td>HTML, CSS, JavaScript, React</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Design</strong></td>
+                        <td>UI Design, Figma, Adobe XD</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tools</strong></td>
+                        <td>Git, GitHub, VS Code</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>💼 Featured Projects</h2>
+            <h3>Project 1: Portfolio Website</h3>
+            <p>Built a responsive portfolio using HTML5, CSS3, and JavaScript with smooth animations.</p>
+            <a href="#" style="color: #667eea; text-decoration: none;">View Project →</a>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 2px solid #ddd;">
+
+            <h3>Project 2: E-commerce Platform</h3>
+            <p>Created an interactive e-commerce site with product filtering and shopping cart functionality.</p>
+            <a href="#" style="color: #667eea; text-decoration: none;">View Project →</a>
+        </section>
+
+        <!-- Contact Section -->
         <section id="contact">
-            <h2>Contact</h2>
-            <p>Feel free to reach out! You can contact me at:</p>
-            <p>Email: <strong>example@email.com</strong></p>
+            <h2>📧 Get In Touch</h2>
+            <form onsubmit="handleSubmit(event)">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <h3 style="margin-top: 2rem; color: #1e3c72;">Connect With Me</h3>
+            <div class="social-links">
+                <a href="https://github.com/anand3452u-design" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="mailto:example@email.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 My Simple Web Page. All rights reserved.</p>
+        <div class="footer-text">
+            <p>&copy; 2026 All About Anand. All rights reserved.</p>
+            <p>Built with ❤️ using HTML, CSS & JavaScript</p>
+        </div>
     </footer>
 
     <script>
-        function showMessage() {
-            alert("Hello! Thanks for clicking the button!");
+        function showWelcomeMessage() {
+            alert("Welcome! 👋 I'm excited to connect with you. Check out my projects and feel free to reach out!");
         }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            alert(`Thank you, ${name}! Your message has been received. I'll get back to you at ${email} soon!`);
+            
+            // Clear the form
+            event.target.reset();
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
