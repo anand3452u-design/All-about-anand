@@ -1,184 +1,453 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-error-container": "#93000a",
-                        "on-tertiary": "#ffffff",
-                        "surface-tint": "#b90760",
-                        "surface-container-lowest": "#ffffff",
-                        "on-tertiary-fixed-variant": "#6c344e",
-                        "surface-container-low": "#fff0f2",
-                        "surface-container-highest": "#f6dce1",
-                        "surface": "#fff8f8",
-                        "surface-bright": "#fff8f8",
-                        "on-surface-variant": "#594047",
-                        "primary": "#b90760",
-                        "secondary-fixed-dim": "#ffb1c4",
-                        "background": "#fff8f8",
-                        "on-primary-fixed": "#3f001c",
-                        "on-primary-container": "#5b002c",
-                        "on-primary": "#ffffff",
-                        "surface-container": "#ffe8ed",
-                        "error": "#ba1a1a",
-                        "on-surface": "#26181c",
-                        "on-tertiary-container": "#4b1931",
-                        "error-container": "#ffdad6",
-                        "tertiary-container": "#c27e9a",
-                        "on-error": "#ffffff",
-                        "primary-container": "#ff4d94",
-                        "inverse-primary": "#ffb1c7",
-                        "primary-fixed": "#ffd9e2",
-                        "inverse-surface": "#3c2c30",
-                        "outline-variant": "#e0bec6",
-                        "primary-fixed-dim": "#ffb1c7",
-                        "tertiary-fixed-dim": "#fdb1cf",
-                        "tertiary": "#884b66",
-                        "on-secondary-fixed-variant": "#8f0044",
-                        "on-secondary": "#ffffff",
-                        "on-primary-fixed-variant": "#8e0048",
-                        "surface-container-high": "#fce2e7",
-                        "on-background": "#26181c",
-                        "inverse-on-surface": "#ffecef",
-                        "on-secondary-fixed": "#3f001a",
-                        "on-tertiary-fixed": "#380921",
-                        "secondary-fixed": "#ffd9e0",
-                        "secondary": "#b60058",
-                        "tertiary-fixed": "#ffd8e5",
-                        "on-secondary-container": "#fffbff",
-                        "surface-variant": "#f6dce1",
-                        "secondary-container": "#e11170",
-                        "outline": "#8c7077",
-                        "surface-dim": "#eed4d9"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "xs": "4px",
-                        "lg": "48px",
-                        "base": "8px",
-                        "md": "24px",
-                        "sm": "12px",
-                        "xl": "80px",
-                        "container-max": "600px"
-                    },
-                    "fontFamily": {
-                        "label-sm": ["Plus Jakarta Sans"],
-                        "headline-lg": ["Epilogue"],
-                        "body-md": ["Plus Jakarta Sans"],
-                        "headline-xl": ["Epilogue"]
-                    },
-                    "fontSize": {
-                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
-                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "500"}],
-                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}]
-                    }
-                },
-            },
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Jyotsana! 🎂</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Caveat:wght@500;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
         }
-        .neomorph-pill {
-            box-shadow: 8px 8px 16px rgba(255, 77, 148, 0.15), -8px -8px 16px rgba(255, 255, 255, 0.8);
+        
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
-        .neomorph-pill:active {
-            box-shadow: inset 4px 4px 8px rgba(255, 77, 148, 0.1), inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+        
+        .page.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .floating-heart {
-            position: absolute;
+        
+        .bg-gradient-pink {
+            background: linear-gradient(to bottom right, #fdf2f8, #ffffff, #faf5ff);
+        }
+        
+        .bg-gradient-red {
+            background: linear-gradient(to bottom right, #fee2e2, #fdf2f8, #f3e8ff);
+        }
+        
+        .font-fredoka {
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        .font-caveat {
+            font-family: 'Caveat', cursive;
+        }
+        
+        /* Floating Hearts */
+        .floating-hearts {
+            position: fixed;
+            inset: 0;
             pointer-events: none;
-            opacity: 0.6;
-            animation: float-up 6s infinite ease-in-out;
+            overflow: hidden;
+            z-index: 1;
         }
-        @keyframes float-up {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            20% { opacity: 0.6; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            animation: float 10s infinite ease-in;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Question Page */
+        .question-container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .question-title {
+            font-size: 4rem;
+            color: #ec4899;
+            margin-bottom: 3rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        
+        button:hover {
+            transform: scale(1.1);
+        }
+        
+        button:active {
+            transform: scale(0.95);
+        }
+        
+        .btn-yes {
+            background-color: #ec4899;
+            color: white;
+        }
+        
+        .btn-yes:hover {
+            background-color: #db2777;
+        }
+        
+        .btn-no {
+            background-color: #9ca3af;
+            color: white;
+        }
+        
+        .btn-no:hover {
+            background-color: #6b7280;
+        }
+        
+        /* Rejection Page */
+        .rejection-container {
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .rejection-title {
+            font-size: 5rem;
+            color: #dc2626;
+            margin-bottom: 2rem;
+            animation: shake 0.5s infinite;
+        }
+        
+        @keyframes shake {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+        
+        .rejection-text {
+            font-size: 1.5rem;
+            color: #4b5563;
+            margin-top: 2rem;
+        }
+        
+        /* Birthday Page */
+        .birthday-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .birthday-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .birthday-title {
+            font-size: 4rem;
+            color: #ec4899;
+            margin-bottom: 1rem;
+        }
+        
+        .birthday-name {
+            font-size: 3.5rem;
+            color: #9333ea;
+            margin-bottom: 1.5rem;
+        }
+        
+        .birthday-date {
+            font-size: 2rem;
+            color: #ec4899;
+        }
+        
+        .message-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .message-text {
+            font-size: 1.5rem;
+            color: #334155;
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .message-love {
+            font-size: 2rem;
+            color: #ec4899;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .memories-title {
+            font-size: 2.5rem;
+            color: #9333ea;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .photos-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 1rem;
+            padding-bottom: 3rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .polaroid:hover {
+            transform: scale(1.05);
+        }
+        
+        .polaroid-1 {
+            transform: rotate(-5deg);
+        }
+        
+        .polaroid-2 {
+            transform: rotate(5deg);
+        }
+        
+        .polaroid img {
+            width: 100%;
+            max-width: 350px;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .photo-caption {
+            font-size: 1.5rem;
+            color: #ec4899;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .final-message {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .final-title {
+            font-size: 3rem;
+            color: #ec4899;
+            margin-bottom: 1rem;
+        }
+        
+        .final-text {
+            font-size: 1.5rem;
+            color: #9333ea;
+        }
+        
+        @media (max-width: 768px) {
+            .question-title {
+                font-size: 2.5rem;
+            }
+            
+            button {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+            
+            .rejection-title {
+                font-size: 3rem;
+            }
+            
+            .birthday-title {
+                font-size: 2.5rem;
+            }
+            
+            .birthday-name {
+                font-size: 2rem;
+            }
+            
+            .message-text {
+                font-size: 1.2rem;
+            }
+            
+            .polaroid img {
+                max-width: 250px;
+                height: 220px;
+            }
         }
     </style>
 </head>
-<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-hidden">
-<header class="bg-white/90 dark:bg-pink-950/90 backdrop-blur-md flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50 border-b border-pink-100/50 dark:border-pink-900/50 shadow-[0_10px_40px_-15px_rgba(255,77_148,0.3)] rounded-b-[2rem]">
-<div class="text-2xl font-black text-pink-600 dark:text-pink-400 italic font-headline-lg">Birthday Love</div>
-<div class="flex gap-4">
-<button class="text-pink-500 dark:text-pink-300 hover:scale-105 transition-transform duration-300 active:scale-95">
-<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
-</button>
-<button class="text-pink-500 dark:text-pink-300 hover:scale-105 transition-transform duration-300 active:scale-95">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-</button>
-</div>
-</header>
-<main class="flex-grow flex items-center justify-center px-4 pt-24 pb-32 relative">
-<div class="absolute inset-0 overflow-hidden -z-10">
-<span class="material-symbols-outlined floating-heart text-primary-container" style="left: 10%; bottom: -50px; font-size: 24px; animation-delay: 0s;">favorite</span>
-<span class="material-symbols-outlined floating-heart text-secondary-container" style="left: 25%; bottom: -50px; font-size: 40px; animation-delay: 2s;">favorite</span>
-<span class="material-symbols-outlined floating-heart text-tertiary-container" style="left: 45%; bottom: -50px; font-size: 18px; animation-delay: 1s;">favorite</span>
-<span class="material-symbols-outlined floating-heart text-primary-container" style="left: 70%; bottom: -50px; font-size: 32px; animation-delay: 4s;">favorite</span>
-<span class="material-symbols-outlined floating-heart text-secondary-container" style="left: 85%; bottom: -50px; font-size: 22px; animation-delay: 3s;">favorite</span>
-</div>
-<div class="w-full max-w-container-max flex flex-col items-center text-center gap-md">
-<div class="relative w-48 h-48 mb-4">
-<div class="absolute inset-0 bg-primary-container/20 rounded-full blur-3xl"></div>
-<img alt="A cute teddy bear holding a giant red heart with sparkles" class="w-full h-full object-cover rounded-full border-8 border-white shadow-xl relative z-10" data-alt="ultra-cute fluffy white teddy bear sitting down and hugging a large plush red heart, soft warm cinematic lighting, pastel background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqbcXi_UPn2q2DIZKnz-X425WFj4N1qBmRDoCcv12UpN87d_NkusUn_up5US9yVzWN5r2kCkvI-UetcpQ8k0GHqXCiKDM77LB1A3ezroU9FQJqC82Vsnz-t0ox44j7mgUx5eRN6vP372uh089E4Iuss-yP2mlGHKplAW4jesW9sVkko0h4p4KD9nVMpluwjlyDT4nFRs660SgNfShleQbHQAAmbwvnkJ9zNxFcqJboItT99Rfb-8qrrmOpSffoL270Dr2HfdaoFDk"/>
-</div>
-<div class="space-y-sm">
-<div class="inline-block px-4 py-1 bg-surface-container text-secondary font-label-sm rounded-full mb-2">Birthday Special</div>
-<h1 class="font-headline-xl text-primary text-center leading-tight drop-shadow-sm">Do you love me???</h1>
-<p class="font-body-md text-on-surface-variant max-w-xs mx-auto">This is the most important question of the day! Please answer truthfully... ❤️</p>
-</div>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-md mt-lg w-full">
-<button class="group relative flex items-center justify-center min-w-[180px] bg-gradient-to-br from-primary-container to-secondary py-6 px-12 rounded-full neomorph-pill transition-all duration-300 hover:scale-110 active:scale-95 overflow-hidden">
-<span class="relative z-10 font-headline-lg text-white tracking-wide">Yes</span>
-<span class="absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">favorite</span>
-</button>
-<button class="min-w-[140px] bg-surface-container-highest text-on-surface-variant font-headline-lg py-4 px-8 rounded-full border-2 border-transparent hover:border-outline-variant transition-all duration-300 hover:scale-105 active:scale-95 grayscale hover:grayscale-0 opacity-80 hover:opacity-100">
-                    No
-                </button>
-</div>
-<div class="mt-xl flex flex-wrap justify-center gap-sm">
-<span class="px-4 py-2 bg-surface-container text-primary font-label-sm rounded-full flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> Hopes
-                </span>
-<span class="px-4 py-2 bg-surface-container text-primary font-label-sm rounded-full flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">favorite</span> Wishes
-                </span>
-<span class="px-4 py-2 bg-surface-container text-primary font-label-sm rounded-full flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_stories</span> Memories
-                </span>
-</div>
-</div>
-</main>
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/95 dark:bg-pink-950/95 docked full-width bottom-0 rounded-t-[2.5rem] border-t border-pink-50 dark:border-pink-900 shadow-[0_-10px_40px_-15px_rgba(255,77,148,0.2)]">
-<a class="flex flex-col items-center justify-center text-pink-300 dark:text-pink-700 px-4 py-2 hover:text-pink-500 dark:hover:text-pink-300 transition-all active:scale-90 duration-150" href="#">
-<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
-<span class="font-epilogue text-[10px] font-bold uppercase tracking-widest mt-1">Journey</span>
-</a>
-<a class="flex flex-col items-center justify-center bg-pink-50 dark:bg-pink-900/40 text-pink-600 dark:text-pink-200 rounded-full px-5 py-2 scale-110 transition-all active:scale-90 duration-150" href="#">
-<span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
-<span class="font-epilogue text-[10px] font-bold uppercase tracking-widest mt-1">The Wish</span>
-</a>
-<a class="flex flex-col items-center justify-center text-pink-300 dark:text-pink-700 px-4 py-2 hover:text-pink-500 dark:hover:text-pink-300 transition-all active:scale-90 duration-150" href="#">
-<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
-<span class="font-epilogue text-[10px] font-bold uppercase tracking-widest mt-1">Memories</span>
-</a>
-</nav>
-</body></html>
+<body>
+    <!-- Question Page -->
+    <div id="question-page" class="page active bg-gradient-pink">
+        <div class="floating-hearts" id="hearts-1"></div>
+        <div class="question-container">
+            <h1 class="question-title font-fredoka">Do u love me ??? 💕</h1>
+            <div class="button-container">
+                <button class="btn-yes" onclick="showBirthdayPage()">Yes 💖</button>
+                <button class="btn-no" onclick="showRejectionPage()">No 😒</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rejection Page -->
+    <div id="rejection-page" class="page bg-gradient-red">
+        <div class="rejection-container">
+            <h1 class="rejection-title font-fredoka">How dare U 😭 😡</h1>
+            <p class="rejection-text">Redirecting back in 3 seconds...</p>
+        </div>
+    </div>
+
+    <!-- Birthday Page -->
+    <div id="birthday-page" class="page bg-gradient-pink">
+        <div class="floating-hearts" id="hearts-2"></div>
+        <div class="birthday-container">
+            <div class="birthday-header">
+                <h1 class="birthday-title font-fredoka">Happy Birthday 🎂</h1>
+                <h2 class="birthday-name font-fredoka">Jyotsana! ✨</h2>
+                <p class="birthday-date font-caveat">27 April 2007 💝</p>
+            </div>
+
+            <div class="message-card">
+                <p class="message-text">
+                    To the most amazing person in my life! 🥰 Every moment with you is a treasure, 
+                    and today is all about celebrating YOU! ❤️
+                </p>
+                <p class="message-text">
+                    You make every day brighter with your smile, your laughter, and your love. 
+                    I'm so grateful to have you in my life! 🌟
+                </p>
+                <p class="message-love font-caveat">
+                    I love you more than words can say! 💕✨🎉
+                </p>
+            </div>
+
+            <h3 class="memories-title font-fredoka">Our Memories 📸</h3>
+            
+            <div class="photos-container">
+                <div class="polaroid-wrapper">
+                    <div class="polaroid polaroid-1">
+                        <img src="https://customer-assets.emergentagent.com/job_jyotsana-do-you-love/artifacts/aa61o1xz_11887.jpg" alt="Us together">
+                    </div>
+                    <p class="photo-caption font-caveat">Us 💕</p>
+                </div>
+                
+                <div class="polaroid-wrapper">
+                    <div class="polaroid polaroid-2">
+                        <img src="https://customer-assets.emergentagent.com/job_jyotsana-do-you-love/artifacts/ip51c1rq_11041.jpg" alt="Our connection">
+                    </div>
+                    <p class="photo-caption font-caveat">Forever 💗</p>
+                </div>
+            </div>
+
+            <div class="final-message">
+                <p class="final-title font-fredoka">
+                    Wishing you the happiest birthday ever! 🎊🎈🎁
+                </p>
+                <p class="final-text">
+                    May all your dreams come true! ✨💖
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHearts(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = '💖';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.animationDuration = (8 + Math.random() * 4) + 's';
+                heart.style.fontSize = (1.5 + Math.random() * 2) + 'rem';
+                container.appendChild(heart);
+            }
+        }
+
+        // Initialize hearts for question and birthday pages
+        createFloatingHearts('hearts-1');
+        createFloatingHearts('hearts-2');
+
+        // Page navigation functions
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function showBirthdayPage() {
+            showPage('birthday-page');
+        }
+
+        function showRejectionPage() {
+            showPage('rejection-page');
+            setTimeout(() => {
+                showPage('question-page');
+            }, 3000);
+        }
+
+        // Initial page
+        showPage('question-page');
+    </script>
+</body>
+</html>
