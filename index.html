@@ -3,311 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jyotsana's Magical 19th ✨</title>
+    <title>Happy Birthday Jyotsana! 🎂</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Caveat:wght@500;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --pink: #ff4d94;
-            --light-pink: #ff85a1;
-            --gold: #ffd700;
-            --dark: #2d3436;
-        }
-
-        body {
+        * {
             margin: 0;
-            background: #fff0f5;
-            font-family: 'Segoe UI', sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
             overflow-x: hidden;
-            color: var(--dark);
         }
-
-        /* Animated Background */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+        
+        .page {
+            display: none;
+            min-height: 100vh;
             padding: 20px;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
+        
+        .page.active {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 2s ease;
         }
-
-        h1 {
-            font-size: 4rem;
-            color: var(--pink);
-            text-shadow: 3px 3px 0px white, 5px 5px 0px var(--light-pink);
-            margin: 0;
+        
+        .bg-gradient-pink {
+            background: linear-gradient(to bottom right, #fdf2f8, #ffffff, #faf5ff);
         }
-
-        .age-pill {
-            background: var(--pink);
-            color: white;
-            padding: 10px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-top: 10px;
-            box-shadow: 0 10px 20px rgba(255, 77, 148, 0.3);
+        
+        .bg-gradient-red {
+            background: linear-gradient(to bottom right, #fee2e2, #fdf2f8, #f3e8ff);
         }
-
-        /* 1. Virtual Cake Game */
-        .cake-section {
-            padding: 100px 0;
+        
+        .font-fredoka {
+            font-family: 'Fredoka', sans-serif;
         }
-
-        .cake {
-            position: relative;
-            width: 200px;
-            height: 150px;
-            background: #fbdada;
-            margin: 50px auto;
-            border-radius: 20px 20px 0 0;
-            box-shadow: 0 10px 0 #f1a5a5;
+        
+        .font-caveat {
+            font-family: 'Caveat', cursive;
         }
-
-        .candle {
-            width: 15px;
-            height: 50px;
-            background: var(--gold);
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .flame {
-            width: 15px;
-            height: 25px;
-            background: orange;
-            position: absolute;
-            top: -20px;
-            border-radius: 50% 50% 20% 20%;
-            animation: flicker 0.1s infinite;
-        }
-
-        /* 2. Heart Catcher Mini-Game */
-        .game-box {
-            background: white;
-            border-radius: 30px;
-            padding: 30px;
-            position: relative;
-            height: 400px;
+        
+        /* Floating Hearts */
+        .floating-hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
             overflow: hidden;
-            border: 4px solid var(--pink);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            z-index: 1;
         }
-
-        .heart-catch {
+        
+        .heart {
             position: absolute;
             font-size: 2rem;
-            cursor: pointer;
-            transition: transform 0.1s;
+            opacity: 0;
+            animation: float 10s infinite ease-in;
         }
-
-        /* 3. Message Board */
-        .letter {
-            background: white;
-            padding: 40px;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: left;
-            line-height: 1.8;
-            border-left: 10px solid var(--pink);
-            margin: 50px 0;
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1200px) rotate(360deg);
+                opacity: 0;
+            }
         }
-
-        .btn-action {
-            background: var(--pink);
-            color: white;
+        
+        /* Question Page */
+        .question-container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .question-title {
+            font-size: 4rem;
+            color: #ec4899;
+            margin-bottom: 3rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            padding: 1.5rem 3rem;
             border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            border-radius: 9999px;
             cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(255, 77, 148, 0.4);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.3s;
         }
-
-        .btn-action:hover {
-            transform: translateY(-5px);
-            background: #e6005c;
+        
+        button:hover {
+            transform: scale(1.1);
         }
-
-        @keyframes flicker {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1) rotate(2deg); }
-            100% { transform: scale(1); }
+        
+        button:active {
+            transform: scale(0.95);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        .btn-yes {
+            background-color: #ec4899;
+            color: white;
         }
-
-        .scroll-indicator {
-            margin-top: 50px;
-            animation: bounce 2s infinite;
+        
+        .btn-yes:hover {
+            background-color: #db2777;
         }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
+        
+        .btn-no {
+            background-color: #9ca3af;
+            color: white;
+        }
+        
+        .btn-no:hover {
+            background-color: #6b7280;
+        }
+        
+        /* Rejection Page */
+        .rejection-container {
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .rejection-title {
+            font-size: 5rem;
+            color: #dc2626;
+            margin-bottom: 2rem;
+            animation: shake 0.5s infinite;
+        }
+        
+        @keyframes shake {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+        
+        .rejection-text {
+            font-size: 1.5rem;
+            color: #4b5563;
+            margin-top: 2rem;
+        }
+        
+        /* Birthday Page */
+        .birthday-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .birthday-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .birthday-title {
+            font-size: 4rem;
+            color: #ec4899;
+            margin-bottom: 1rem;
+        }
+        
+        .birthday-name {
+            font-size: 3.5rem;
+            color: #9333ea;
+            margin-bottom: 1.5rem;
+        }
+        
+        .birthday-date {
+            font-size: 2rem;
+            color: #ec4899;
+        }
+        
+        .message-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .message-text {
+            font-size: 1.5rem;
+            color: #334155;
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .message-love {
+            font-size: 2rem;
+            color: #ec4899;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .memories-title {
+            font-size: 2.5rem;
+            color: #9333ea;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .photos-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 1rem;
+            padding-bottom: 3rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .polaroid:hover {
+            transform: scale(1.05);
+        }
+        
+        .polaroid-1 {
+            transform: rotate(-5deg);
+        }
+        
+        .polaroid-2 {
+            transform: rotate(5deg);
+        }
+        
+        .polaroid img {
+            width: 100%;
+            max-width: 350px;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .photo-caption {
+            font-size: 1.5rem;
+            color: #ec4899;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .final-message {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .final-title {
+            font-size: 3rem;
+            color: #ec4899;
+            margin-bottom: 1rem;
+        }
+        
+        .final-text {
+            font-size: 1.5rem;
+            color: #9333ea;
+        }
+        
+        @media (max-width: 768px) {
+            .question-title {
+                font-size: 2.5rem;
+            }
+            
+            button {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+            
+            .rejection-title {
+                font-size: 3rem;
+            }
+            
+            .birthday-title {
+                font-size: 2.5rem;
+            }
+            
+            .birthday-name {
+                font-size: 2rem;
+            }
+            
+            .message-text {
+                font-size: 1.2rem;
+            }
+            
+            .polaroid img {
+                max-width: 250px;
+                height: 220px;
+            }
         }
     </style>
 </head>
 <body>
-
-    <canvas id="bg-canvas"></canvas>
-
-    <div class="container">
-        <div class="hero">
-            <h1>Jyotsana</h1>
-            <div class="age-pill">Level 19 ✨</div>
-            <p style="font-size: 1.2rem; color: #666; margin-top: 20px;">27th April 2007 • The day the world got brighter.</p>
-            <div class="scroll-indicator">⬇️ Scroll for Surprises</div>
+    <!-- Question Page -->
+    <div id="question-page" class="page active bg-gradient-pink">
+        <div class="floating-hearts" id="hearts-1"></div>
+        <div class="question-container">
+            <img src="https://customer-assets.emergentagent.com/job_jyotsana-do-you-love/artifacts/7i4xtwuf_12814.jpg" 
+                 alt="Us" 
+                 style="max-width: 500px; width: 100%; border-radius: 1.5rem; box-shadow: 0 25px 50px rgba(0,0,0,0.2); margin-bottom: 2rem;">
+            <p style="font-size: 2rem; font-weight: bold; color: #9333ea; margin-bottom: 2rem;" class="font-fredoka">
+                Answer this question for surprise 🤩
+            </p>
+            <h1 class="question-title font-fredoka">Do u love me Jyotsana? 💖💝</h1>
+            <div class="button-container">
+                <button class="btn-yes" onclick="showBirthdayPage()">Yes 💖</button>
+                <button class="btn-no" onclick="showRejectionPage()">No 😒</button>
+            </div>
         </div>
+    </div>
 
-        <div class="cake-section">
-            <h2>🎂 Make a Wish!</h2>
-            <p>Click the flame to blow out the candle.</p>
-            <div class="cake">
-                <div class="candle" onclick="blowCandle(this)">
-                    <div class="flame" id="main-flame"></div>
+    <!-- Rejection Page -->
+    <div id="rejection-page" class="page bg-gradient-red">
+        <div class="rejection-container">
+            <h1 class="rejection-title font-fredoka">How dare U 😭 😡</h1>
+            <p class="rejection-text">Redirecting back in 3 seconds...</p>
+        </div>
+    </div>
+
+    <!-- Birthday Page -->
+    <div id="birthday-page" class="page bg-gradient-pink">
+        <div class="floating-hearts" id="hearts-2"></div>
+        <div class="birthday-container">
+            <div class="birthday-header">
+                <h1 class="birthday-title font-fredoka">Happy Birthday 🎂</h1>
+                <h2 class="birthday-name font-fredoka">Jyotsana! ✨</h2>
+                <p class="birthday-date font-caveat">27 April 2007 💝</p>
+            </div>
+
+            <div class="message-card">
+                <p class="message-text">
+                    To the most amazing person in my life! 🥰 Every moment with you is a treasure, 
+                    and today is all about celebrating YOU! ❤️
+                </p>
+                <p class="message-text">
+                    You make every day brighter with your smile, your laughter, and your love. 
+                    I'm so grateful to have you in my life! 🌟
+                </p>
+                <p class="message-love font-caveat">
+                    I love you more than words can say! 💕✨🎉
+                </p>
+            </div>
+
+            <h3 class="memories-title font-fredoka">Our Memories 📸</h3>
+            
+            <div class="photos-container">
+                <div class="polaroid-wrapper">
+                    <div class="polaroid polaroid-1">
+                        <img src="https://customer-assets.emergentagent.com/job_jyotsana-do-you-love/artifacts/aa61o1xz_11887.jpg" alt="Us together">
+                    </div>
+                    <p class="photo-caption font-caveat">Us 💕</p>
+                </div>
+                
+                <div class="polaroid-wrapper">
+                    <div class="polaroid polaroid-2">
+                        <img src="https://customer-assets.emergentagent.com/job_jyotsana-do-you-love/artifacts/ip51c1rq_11041.jpg" alt="Our connection">
+                    </div>
+                    <p class="photo-caption font-caveat">Forever 💗</p>
                 </div>
             </div>
-            <h3 id="wish-msg" style="display:none; color: var(--pink);">May all your dreams come true, my love! ❤️</h3>
-        </div>
 
-        <div class="cake-section">
-            <h2>💖 Catch My Love!</h2>
-            <p>Score 10 hearts for a special message. Score: <span id="score">0</span></p>
-            <div class="game-box" id="game-box">
-                <button class="btn-action" id="start-game" onclick="startGame()">Start Catching</button>
+            <div class="final-message">
+                <p class="final-title font-fredoka">
+                    Wishing you the happiest birthday ever! 🎊🎈🎁
+                </p>
+                <p class="final-text">
+                    May all your dreams come true! ✨💖
+                </p>
             </div>
         </div>
-
-        <div class="letter">
-            <h2 style="color: var(--pink);">To My Dearest Jyotsana,</h2>
-            <p>
-                From the moment we met, you've turned my life into a beautiful adventure. 
-                They say 19 is a special age, but honestly, every day with you is special. 
-                I love your laugh, your strength, and the way you make the world feel safe.
-            </p>
-            <p>
-                On your 19th birthday, I want to promise you that no matter how many years go by, 
-                I'll always be the one cheering for you the loudest. You aren't just my girlfriend; 
-                you are my best friend and my home.
-            </p>
-            <p><strong>Happy Birthday, Beautiful! ❤️</strong></p>
-        </div>
-
-        <button class="btn-action" onclick="alert('I Love You Infinite Times! ❤️')">Click for a Hug 🤗</button>
-
-        <footer style="margin: 100px 0 50px; opacity: 0.6;">
-            Created with Love for Jyotsana
-        </footer>
     </div>
 
     <script>
-        // 1. Particle Background
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const hearts = [];
-        function createHeart() {
-            return {
-                x: Math.random() * canvas.width,
-                y: canvas.height + 20,
-                size: Math.random() * 15 + 10,
-                speed: Math.random() * 2 + 1,
-                opacity: Math.random() * 0.5 + 0.2
-            };
-        }
-
-        function drawBg() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            if (hearts.length < 30) hearts.push(createHeart());
-
-            hearts.forEach((h, i) => {
-                ctx.globalAlpha = h.opacity;
-                ctx.font = h.size + 'px serif';
-                ctx.fillText('💖', h.x, h.y);
-                h.y -= h.speed;
-                if (h.y < -20) hearts.splice(i, 1);
-            });
-            requestAnimationFrame(drawBg);
-        }
-        drawBg();
-
-        // 2. Blow Candle Logic
-        function blowCandle(el) {
-            document.getElementById('main-flame').style.display = 'none';
-            document.getElementById('wish-msg').style.display = 'block';
-            confettiEffect();
-        }
-
-        // 3. Heart Catcher Game
-        let score = 0;
-        function startGame() {
-            document.getElementById('start-game').style.display = 'none';
-            const spawn = setInterval(() => {
-                if(score >= 10) {
-                    clearInterval(spawn);
-                    alert("You caught all my love! Check the letter below. ❤️");
-                    return;
-                }
-                const h = document.createElement('div');
-                h.className = 'heart-catch';
-                h.innerHTML = '❤️';
-                h.style.left = Math.random() * 80 + 10 + '%';
-                h.style.top = Math.random() * 80 + 10 + '%';
-                h.onclick = () => {
-                    score++;
-                    document.getElementById('score').innerText = score;
-                    h.remove();
-                };
-                document.getElementById('game-box').appendChild(h);
-                setTimeout(() => h.remove(), 2000);
-            }, 800);
-        }
-
-        // 4. Confetti Effect
-        function confettiEffect() {
-            for(let i=0; i<50; i++) {
-                const conf = document.createElement('div');
-                conf.innerHTML = '🎉';
-                conf.style.position = 'fixed';
-                conf.style.left = Math.random() * 100 + 'vw';
-                conf.style.top = '100vh';
-                conf.style.fontSize = '2rem';
-                conf.style.transition = '3s';
-                document.body.appendChild(conf);
-                setTimeout(() => {
-                    conf.style.transform = `translateY(-110vh) rotate(${Math.random()*360}deg)`;
-                    conf.style.opacity = '0';
-                }, 10);
-                setTimeout(() => conf.remove(), 3000);
+        // Create floating hearts
+        function createFloatingHearts(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = '💖';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.animationDuration = (8 + Math.random() * 4) + 's';
+                heart.style.fontSize = (1.5 + Math.random() * 2) + 'rem';
+                container.appendChild(heart);
             }
         }
+
+        // Initialize hearts for question and birthday pages
+        createFloatingHearts('hearts-1');
+        createFloatingHearts('hearts-2');
+
+        // Page navigation functions
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function showBirthdayPage() {
+            showPage('birthday-page');
+        }
+
+        function showRejectionPage() {
+            showPage('rejection-page');
+            setTimeout(() => {
+                showPage('question-page');
+            }, 3000);
+        }
+
+        // Initial page
+        showPage('question-page');
     </script>
 </body>
 </html>
