@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jyotsana's Birthday Bash! 🎮🌸</title>
+    <title>Jyotsana's Birthday Wonderland 💖</title>
     <style>
         :root {
             --primary: #ff477e;
@@ -16,215 +16,173 @@
             background-color: var(--bg);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             color: #444;
+            padding-bottom: 50px;
         }
 
-        .header {
-            text-align: center;
-            padding: 40px 20px;
-            animation: fadeInDown 1s ease;
-        }
-
-        h1 { color: var(--primary); font-size: 3rem; margin: 0; }
-        .level-badge {
-            background: var(--primary);
-            color: white;
-            padding: 5px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        /* --- THE GAME ZONE --- */
-        .game-container {
+        .section {
             background: white;
             width: 90%;
             max-width: 600px;
             border-radius: 25px;
-            padding: 20px;
-            box-shadow: 0 15px 30px rgba(255, 71, 126, 0.15);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(255, 71, 126, 0.1);
             text-align: center;
-            margin-bottom: 30px;
-            border: 3px solid var(--accent);
+            margin: 20px 0;
+            border: 2px solid var(--accent);
         }
 
-        .game-area {
-            height: 250px;
-            background: #fff9fa;
-            border-radius: 15px;
+        h1 { color: var(--primary); margin: 0; font-size: 2.5rem; }
+        h2 { color: var(--secondary); font-size: 1.5rem; }
+
+        /* --- SCRATCH CARD --- */
+        #scratch-container {
             position: relative;
-            overflow: hidden;
-            border: 1px inset var(--accent);
-            cursor: crosshair;
+            width: 300px;
+            height: 150px;
+            margin: 0 auto;
+            user-select: none;
         }
-
-        .balloon {
+        #scratch-canvas {
             position: absolute;
-            width: 40px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            animation: floatUp 4s linear infinite;
+            top: 0;
+            left: 0;
+            cursor: crosshair;
+            border-radius: 15px;
         }
-
-        /* --- INTERACTIVE BUTTONS --- */
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 0 #d63366;
-        }
-
-        button:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #d63366; }
-        button:active { transform: translateY(2px); box-shadow: 0 0 0 #d63366; }
-
-        .magic-box {
-            margin-top: 20px;
-            min-height: 60px;
-            font-style: italic;
-            color: var(--primary);
-            font-size: 1.2rem;
+        .scratch-reveal-text {
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: #fff9fa;
+            border-radius: 15px;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+            border: 2px dashed var(--accent);
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes floatUp {
-            from { bottom: -60px; }
-            to { bottom: 300px; }
+        /* --- MEMORY GAME --- */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .card {
+            aspect-ratio: 1;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: transparent;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .card.flipped {
+            background: white;
+            color: initial;
+            border: 2px solid var(--primary);
+            transform: rotateY(180deg);
+        }
+        .card.matched {
+            background: var(--accent);
+            visibility: hidden;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* --- LOVE PULSE --- */
+        #heart-icon {
+            font-size: 3rem;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+        .pulse-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        /* Confetti Styles */
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            z-index: 999;
-        }
+        button { transition: 0.3s; }
+        button:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Happy 19th, Jyotsana! 🎂</h1>
-        <div class="level-badge">LEVEL 19 UNLOCKED ✨</div>
-        <p>Born: 27 April 2007 | 100% Limited Edition</p>
+    <div class="section">
+        <h1>Happy Birthday Jyotsana! 🎂</h1>
+        <p>27 April 2007 | Level 19 Unlocked ✨</p>
     </div>
 
-    <div class="game-container">
-        <h3>🎈 Pop the Balloons!</h3>
-        <p>Score: <span id="score">0</span></p>
-        <div class="game-area" id="gameArea">
-            </div>
-        
-        <div class="btn-group">
-            <button onclick="spawnBalloon()">Add More Balloons! 🎈</button>
-            <button onclick="getCompliment()" style="background: #9b59b6; box-shadow: 0 4px 0 #8e44ad;">Reason Why I Love You ❤️</button>
-            <button onclick="throwConfetti()" style="background: #f1c40f; box-shadow: 0 4px 0 #f39c12;">Celebrate! 🎉</button>
-        </div>
-
-        <div class="magic-box" id="complimentBox">
-            Click the purple button for a surprise...
+    <div class="section">
+        <h2>🎁 Scratch Your Birthday Gift!</h2>
+        <p>Scratch the gray box to reveal a secret message...</p>
+        <div id="scratch-container">
+            <div class="scratch-reveal-text">You are my Forever Favorite! ❤️</div>
+            <canvas id="scratch-canvas" width="300" height="150"></canvas>
         </div>
     </div>
 
-    <div style="text-align: center; padding: 20px; color: var(--secondary);">
-        <p>May your day be as playful and beautiful as you are! ❤️</p>
+    <div class="section">
+        <h2>🧠 Memory of Us</h2>
+        <p>Match the pairs to unlock a final wish!</p>
+        <div class="memory-grid" id="memoryGrid"></div>
+        <p id="gameMessage" style="display:none; color: var(--primary); font-weight: bold; margin-top: 15px;">
+            Yay! You matched them all! Just like we are a perfect match. 💖
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>❤️ Give Me Some Love!</h2>
+        <div id="heart-icon">❤️</div><br>
+        <button class="pulse-btn" onclick="pumpHeart()">Click to Send Love!</button>
+        <p>Heart Level: <span id="heartLevel">0</span>%</p>
     </div>
 
     <script>
-        let score = 0;
-        const gameArea = document.getElementById('gameArea');
-        const scoreDisplay = document.getElementById('score');
-        const complimentBox = document.getElementById('complimentBox');
+        // --- SCRATCH CARD LOGIC ---
+        const canvas = document.getElementById('scratch-canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#C0C0C0';
+        ctx.fillRect(0, 0, 300, 150);
+        ctx.font = '20px Arial';
+        ctx.fillStyle = '#888';
+        ctx.fillText('Scratch Here!', 85, 80);
 
-        const compliments = [
-            "You have the most beautiful smile in the world! 😍",
-            "You make every day feel like a celebration! ✨",
-            "I'm the luckiest person to have you by my side. ❤️",
-            "You're smarter, kinder, and funnier than anyone I know! 🧠",
-            "Your 19th year is going to be your best one yet! 🚀",
-            "I love you more than words can say! 💌",
-            "You are my favorite person to annoy and love! 😂"
-        ];
-
-        // 1. Balloon Pop Logic
-        function spawnBalloon() {
-            const balloon = document.createElement('div');
-            balloon.className = 'balloon';
-            const colors = ['#ff477e', '#ff85a1', '#fbb1bd', '#74ebd5', '#9b59b6'];
-            balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            balloon.style.left = Math.random() * 90 + '%';
-            balloon.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            
-            balloon.onclick = function() {
-                score++;
-                scoreDisplay.innerText = score;
-                balloon.style.transform = 'scale(2)';
-                balloon.style.opacity = '0';
-                setTimeout(() => balloon.remove(), 100);
-            };
-
-            gameArea.appendChild(balloon);
-            setTimeout(() => balloon.remove(), 4000);
+        let isDrawing = false;
+        function scratch(e) {
+            if (!isDrawing) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.beginPath();
+            ctx.arc(x, y, 20, 0, Math.PI * 2);
+            ctx.fill();
         }
+        canvas.addEventListener('mousedown', () => isDrawing = true);
+        canvas.addEventListener('touchstart', () => isDrawing = true);
+        window.addEventListener('mouseup', () => isDrawing = false);
+        window.addEventListener('touchend', () => isDrawing = false);
+        canvas.addEventListener('mousemove', scratch);
+        canvas.addEventListener('touchmove', scratch);
 
-        // Spawn balloons automatically
-        setInterval(spawnBalloon, 1500);
+        // --- MEMORY GAME LOGIC ---
+        const icons = ['🍭', '🍭', '🦋', '🦋', '🌈', '🌈', '🧸', '🧸', '🌸', '🌸', '🍕', '🍕', '🎈', '🎈', '⭐', '⭐'];
+        let flippedCards = [];
+        let matchedCount = 0;
 
-        // 2. Reason Generator
-        function getCompliment() {
-            const random = compliments[Math.floor(Math.random() * compliments.length)];
-            complimentBox.innerText = random;
-            throwConfetti();
-        }
-
-        // 3. Confetti Cannon
-        function throwConfetti() {
-            for(let i=0; i<30; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.top = '-10px';
-                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                document.body.appendChild(confetti);
-
-                const animation = confetti.animate([
-                    { transform: `translate3d(0,0,0) rotate(0deg)`, opacity: 1 },
-                    { transform: `translate3d(${(Math.random()-0.5)*200}px, 100vh, 0) rotate(720deg)`, opacity: 0 }
-                ], {
-                    duration: Math.random() * 3000 + 2000,
-                    easing: 'cubic-bezier(0, .9, .57, 1)'
-                });
-
-                animation.onfinish = () => confetti.remove();
-            }
-        }
-    </script>
-</body>
-</html>
+        function initGame() {
+            const grid = document.getElementById('memoryGrid');
+            const shuffled = icons.sort(() => Math.random() - 0
