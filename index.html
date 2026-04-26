@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jyotsana's Level 19 Unlocked! 🎮✨</title>
+    <title>Jyotsana's Birthday Bash! 🎮🌸</title>
     <style>
         :root {
             --primary: #ff477e;
@@ -14,150 +14,216 @@
 
         body {
             background-color: var(--bg);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             overflow-x: hidden;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(255, 71, 126, 0.2);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            z-index: 10;
-            border: 4px dashed var(--secondary);
-        }
-
-        h1 {
-            color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .age-text {
-            background: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .fun-stats {
-            text-align: left;
-            background: #fff9fa;
-            padding: 15px;
-            border-radius: 15px;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            border-left: 5px solid var(--primary);
-        }
-
-        .wish-text {
-            font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             color: #444;
-            line-height: 1.6;
         }
 
-        .btn-surprise {
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 { color: var(--primary); font-size: 3rem; margin: 0; }
+        .level-badge {
             background: var(--primary);
             color: white;
-            border: none;
-            padding: 12px 25px;
+            padding: 5px 20px;
             border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-            margin-top: 15px;
             font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
         }
 
-        .btn-surprise:hover {
-            transform: scale(1.1) rotate(2deg);
-            background: #e6396d;
+        /* --- THE GAME ZONE --- */
+        .game-container {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 15px 30px rgba(255, 71, 126, 0.15);
+            text-align: center;
+            margin-bottom: 30px;
+            border: 3px solid var(--accent);
         }
 
-        /* Balloon Animations */
+        .game-area {
+            height: 250px;
+            background: #fff9fa;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            border: 1px inset var(--accent);
+            cursor: crosshair;
+        }
+
         .balloon {
             position: absolute;
             width: 40px;
             height: 50px;
             border-radius: 50%;
-            opacity: 0.7;
-            z-index: 1;
-            bottom: -100px;
-            animation: float 8s infinite ease-in;
+            cursor: pointer;
+            animation: floatUp 4s linear infinite;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
+        /* --- INTERACTIVE BUTTONS --- */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
-        #surprise-msg {
-            display: none;
-            margin-top: 15px;
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
             font-weight: bold;
-            color: var(--primary);
-            animation: fadeIn 0.5s;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 0 #d63366;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        button:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #d63366; }
+        button:active { transform: translateY(2px); box-shadow: 0 0 0 #d63366; }
+
+        .magic-box {
+            margin-top: 20px;
+            min-height: 60px;
+            font-style: italic;
+            color: var(--primary);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes floatUp {
+            from { bottom: -60px; }
+            to { bottom: 300px; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Confetti Styles */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            z-index: 999;
         }
     </style>
 </head>
 <body>
 
-    <div class="balloon" style="left: 10%; background: #ff477e; animation-delay: 0s;"></div>
-    <div class="balloon" style="left: 30%; background: #ff85a1; animation-delay: 2s;"></div>
-    <div class="balloon" style="left: 55%; background: #fbb1bd; animation-delay: 4s;"></div>
-    <div class="balloon" style="left: 80%; background: #ff477e; animation-delay: 1s;"></div>
-    <div class="balloon" style="left: 90%; background: #ffc2d1; animation-delay: 3s;"></div>
+    <div class="header">
+        <h1>Happy 19th, Jyotsana! 🎂</h1>
+        <div class="level-badge">LEVEL 19 UNLOCKED ✨</div>
+        <p>Born: 27 April 2007 | 100% Limited Edition</p>
+    </div>
 
-    <div class="card">
-        <h1>Happy Birthday, Jyotsana! 🥳</h1>
-        <div class="age-text">Level 19 Unlocked 🔓</div>
+    <div class="game-container">
+        <h3>🎈 Pop the Balloons!</h3>
+        <p>Score: <span id="score">0</span></p>
+        <div class="game-area" id="gameArea">
+            </div>
         
-        <p class="wish-text">
-            To the girl who somehow gets more beautiful every single year—Happy Birthday! 🎈 You’re not just a year older; you’re a year more iconic.
-        </p>
-
-        <div class="fun-stats">
-            <strong>Jyotsana’s 19-Year Report Card:</strong><br>
-            ⭐ 100% Sweetness <br>
-            ⭐ 200% Sassy (sometimes!) <br>
-            ⭐ 1000% The best thing that ever happened to me.
+        <div class="btn-group">
+            <button onclick="spawnBalloon()">Add More Balloons! 🎈</button>
+            <button onclick="getCompliment()" style="background: #9b59b6; box-shadow: 0 4px 0 #8e44ad;">Reason Why I Love You ❤️</button>
+            <button onclick="throwConfetti()" style="background: #f1c40f; box-shadow: 0 4px 0 #f39c12;">Celebrate! 🎉</button>
         </div>
 
-        <p class="wish-text">
-            I hope your 19th year is as bright and happy as your smile. Let's make this year unforgettable! 🌈✨
-        </p>
-
-        <button class="btn-surprise" onclick="showSurprise()">Click for a Secret 🤫</button>
-        <div id="surprise-msg">I love you more than pizza! (And that's a lot) ❤️🍕</div>
-
-        <div style="margin-top: 25px; font-size: 0.8rem; color: #888;">
-            Made with ❤️ by your favorite person
+        <div class="magic-box" id="complimentBox">
+            Click the purple button for a surprise...
         </div>
     </div>
 
+    <div style="text-align: center; padding: 20px; color: var(--secondary);">
+        <p>May your day be as playful and beautiful as you are! ❤️</p>
+    </div>
+
     <script>
-        function showSurprise() {
-            const msg = document.getElementById('surprise-msg');
-            msg.style.display = 'block';
-            const btn = document.querySelector('.btn-surprise');
-            btn.innerHTML = "Yay! 🎉";
+        let score = 0;
+        const gameArea = document.getElementById('gameArea');
+        const scoreDisplay = document.getElementById('score');
+        const complimentBox = document.getElementById('complimentBox');
+
+        const compliments = [
+            "You have the most beautiful smile in the world! 😍",
+            "You make every day feel like a celebration! ✨",
+            "I'm the luckiest person to have you by my side. ❤️",
+            "You're smarter, kinder, and funnier than anyone I know! 🧠",
+            "Your 19th year is going to be your best one yet! 🚀",
+            "I love you more than words can say! 💌",
+            "You are my favorite person to annoy and love! 😂"
+        ];
+
+        // 1. Balloon Pop Logic
+        function spawnBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            const colors = ['#ff477e', '#ff85a1', '#fbb1bd', '#74ebd5', '#9b59b6'];
+            balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            balloon.style.left = Math.random() * 90 + '%';
+            balloon.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            
+            balloon.onclick = function() {
+                score++;
+                scoreDisplay.innerText = score;
+                balloon.style.transform = 'scale(2)';
+                balloon.style.opacity = '0';
+                setTimeout(() => balloon.remove(), 100);
+            };
+
+            gameArea.appendChild(balloon);
+            setTimeout(() => balloon.remove(), 4000);
+        }
+
+        // Spawn balloons automatically
+        setInterval(spawnBalloon, 1500);
+
+        // 2. Reason Generator
+        function getCompliment() {
+            const random = compliments[Math.floor(Math.random() * compliments.length)];
+            complimentBox.innerText = random;
+            throwConfetti();
+        }
+
+        // 3. Confetti Cannon
+        function throwConfetti() {
+            for(let i=0; i<30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10px';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                document.body.appendChild(confetti);
+
+                const animation = confetti.animate([
+                    { transform: `translate3d(0,0,0) rotate(0deg)`, opacity: 1 },
+                    { transform: `translate3d(${(Math.random()-0.5)*200}px, 100vh, 0) rotate(720deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 3000 + 2000,
+                    easing: 'cubic-bezier(0, .9, .57, 1)'
+                });
+
+                animation.onfinish = () => confetti.remove();
+            }
         }
     </script>
 </body>
