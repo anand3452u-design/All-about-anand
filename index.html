@@ -3,457 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Jyotsana! 🎂</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Caveat:wght@500;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-    
+    <title>Jyotsana's Level 19 Unlocked! 🎮✨</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #ff477e;
+            --secondary: #ff85a1;
+            --accent: #fbb1bd;
+            --bg: #fff0f3;
         }
-        
+
         body {
-            font-family: 'Nunito', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        .page {
-            display: none;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .page.active {
+            background-color: var(--bg);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        
-        .bg-gradient-pink {
-            background: linear-gradient(to bottom right, #fdf2f8, #ffffff, #faf5ff);
-        }
-        
-        .bg-gradient-red {
-            background: linear-gradient(to bottom right, #fee2e2, #fdf2f8, #f3e8ff);
-        }
-        
-        .font-fredoka {
-            font-family: 'Fredoka', sans-serif;
-        }
-        
-        .font-caveat {
-            font-family: 'Caveat', cursive;
-        }
-        
-        /* Floating Hearts */
-        .floating-hearts {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .heart {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0;
-            animation: float 10s infinite ease-in;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-1200px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        /* Question Page */
-        .question-container {
-            text-align: center;
-            z-index: 10;
-            position: relative;
-        }
-        
-        .question-title {
-            font-size: 4rem;
-            color: #ec4899;
-            margin-bottom: 3rem;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-        
-        .button-container {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        button {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.5rem;
-            padding: 1.5rem 3rem;
-            border: none;
-            border-radius: 9999px;
-            cursor: pointer;
-            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-            transition: transform 0.2s, background-color 0.3s;
-        }
-        
-        button:hover {
-            transform: scale(1.1);
-        }
-        
-        button:active {
-            transform: scale(0.95);
-        }
-        
-        .btn-yes {
-            background-color: #ec4899;
-            color: white;
-        }
-        
-        .btn-yes:hover {
-            background-color: #db2777;
-        }
-        
-        .btn-no {
-            background-color: #9ca3af;
-            color: white;
-        }
-        
-        .btn-no:hover {
-            background-color: #6b7280;
-        }
-        
-        /* Rejection Page */
-        .rejection-container {
-            text-align: center;
-            z-index: 10;
-        }
-        
-        .rejection-title {
-            font-size: 5rem;
-            color: #dc2626;
-            margin-bottom: 2rem;
-            animation: shake 0.5s infinite;
-        }
-        
-        @keyframes shake {
-            0%, 100% {
-                transform: rotate(-5deg);
-            }
-            50% {
-                transform: rotate(5deg);
-            }
-        }
-        
-        .rejection-text {
-            font-size: 1.5rem;
-            color: #4b5563;
-            margin-top: 2rem;
-        }
-        
-        /* Birthday Page */
-        .birthday-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            z-index: 10;
-            position: relative;
-        }
-        
-        .birthday-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .birthday-title {
-            font-size: 4rem;
-            color: #ec4899;
-            margin-bottom: 1rem;
-        }
-        
-        .birthday-name {
-            font-size: 3.5rem;
-            color: #9333ea;
-            margin-bottom: 1.5rem;
-        }
-        
-        .birthday-date {
-            font-size: 2rem;
-            color: #ec4899;
-        }
-        
-        .message-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(24px);
-            border-radius: 1.5rem;
-            padding: 3rem;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
-        }
-        
-        .message-text {
-            font-size: 1.5rem;
-            color: #334155;
-            text-align: center;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        
-        .message-love {
-            font-size: 2rem;
-            color: #ec4899;
-            text-align: center;
-            margin-top: 2rem;
-        }
-        
-        .memories-title {
-            font-size: 2.5rem;
-            color: #9333ea;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .photos-container {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-        
-        .polaroid {
+
+        .card {
             background: white;
-            padding: 1rem;
-            padding-bottom: 3rem;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-        }
-        
-        .polaroid:hover {
-            transform: scale(1.05);
-        }
-        
-        .polaroid-1 {
-            transform: rotate(-5deg);
-        }
-        
-        .polaroid-2 {
-            transform: rotate(5deg);
-        }
-        
-        .polaroid img {
-            width: 100%;
-            max-width: 350px;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .photo-caption {
-            font-size: 1.5rem;
-            color: #ec4899;
+            padding: 2rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(255, 71, 126, 0.2);
             text-align: center;
-            margin-top: 1rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+            border: 4px dashed var(--secondary);
         }
-        
-        .final-message {
-            text-align: center;
-            margin-top: 3rem;
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
-        
-        .final-title {
-            font-size: 3rem;
-            color: #ec4899;
-            margin-bottom: 1rem;
+
+        .age-text {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
-        
-        .final-text {
-            font-size: 1.5rem;
-            color: #9333ea;
+
+        .fun-stats {
+            text-align: left;
+            background: #fff9fa;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            border-left: 5px solid var(--primary);
         }
-        
-        @media (max-width: 768px) {
-            .question-title {
-                font-size: 2.5rem;
-            }
-            
-            button {
-                font-size: 1.2rem;
-                padding: 1rem 2rem;
-            }
-            
-            .rejection-title {
-                font-size: 3rem;
-            }
-            
-            .birthday-title {
-                font-size: 2.5rem;
-            }
-            
-            .birthday-name {
-                font-size: 2rem;
-            }
-            
-            .message-text {
-                font-size: 1.2rem;
-            }
-            
-            .polaroid img {
-                max-width: 250px;
-                height: 220px;
-            }
+
+        .wish-text {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .btn-surprise {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .btn-surprise:hover {
+            transform: scale(1.1) rotate(2deg);
+            background: #e6396d;
+        }
+
+        /* Balloon Animations */
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            border-radius: 50%;
+            opacity: 0.7;
+            z-index: 1;
+            bottom: -100px;
+            animation: float 8s infinite ease-in;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
+        }
+
+        #surprise-msg {
+            display: none;
+            margin-top: 15px;
+            font-weight: bold;
+            color: var(--primary);
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <!-- Question Page -->
-    <div id="question-page" class="page active bg-gradient-pink">
-        <div class="floating-hearts" id="hearts-1"></div>
-        <div class="question-container">
-            <img src="https://customer-assets.emergentagent.com/job_jyotsana-do-you-love/artifacts/7i4xtwuf_12814.jpg" 
-                 alt="Us" 
-                 style="max-width: 500px; width: 100%; border-radius: 1.5rem; box-shadow: 0 25px 50px rgba(0,0,0,0.2); margin-bottom: 2rem;">
-            <p style="font-size: 2rem; font-weight: bold; color: #9333ea; margin-bottom: 2rem;" class="font-fredoka">
-                Answer this question for surprise 🤩
-            </p>
-            <h1 class="question-title font-fredoka">Do u love me Jyotsana? 💖💝</h1>
-            <div class="button-container">
-                <button class="btn-yes" onclick="showBirthdayPage()">Yes 💖</button>
-                <button class="btn-no" onclick="showRejectionPage()">No 😒</button>
-            </div>
+
+    <div class="balloon" style="left: 10%; background: #ff477e; animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 30%; background: #ff85a1; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 55%; background: #fbb1bd; animation-delay: 4s;"></div>
+    <div class="balloon" style="left: 80%; background: #ff477e; animation-delay: 1s;"></div>
+    <div class="balloon" style="left: 90%; background: #ffc2d1; animation-delay: 3s;"></div>
+
+    <div class="card">
+        <h1>Happy Birthday, Jyotsana! 🥳</h1>
+        <div class="age-text">Level 19 Unlocked 🔓</div>
+        
+        <p class="wish-text">
+            To the girl who somehow gets more beautiful every single year—Happy Birthday! 🎈 You’re not just a year older; you’re a year more iconic.
+        </p>
+
+        <div class="fun-stats">
+            <strong>Jyotsana’s 19-Year Report Card:</strong><br>
+            ⭐ 100% Sweetness <br>
+            ⭐ 200% Sassy (sometimes!) <br>
+            ⭐ 1000% The best thing that ever happened to me.
         </div>
-    </div>
 
-    <!-- Rejection Page -->
-    <div id="rejection-page" class="page bg-gradient-red">
-        <div class="rejection-container">
-            <h1 class="rejection-title font-fredoka">How dare U 😭 😡</h1>
-            <p class="rejection-text">Redirecting back in 3 seconds...</p>
-        </div>
-    </div>
+        <p class="wish-text">
+            I hope your 19th year is as bright and happy as your smile. Let's make this year unforgettable! 🌈✨
+        </p>
 
-    <!-- Birthday Page -->
-    <div id="birthday-page" class="page bg-gradient-pink">
-        <div class="floating-hearts" id="hearts-2"></div>
-        <div class="birthday-container">
-            <div class="birthday-header">
-                <h1 class="birthday-title font-fredoka">Happy Birthday 🎂</h1>
-                <h2 class="birthday-name font-fredoka">Jyotsana! ✨</h2>
-                <p class="birthday-date font-caveat">27 April 2007 💝</p>
-            </div>
+        <button class="btn-surprise" onclick="showSurprise()">Click for a Secret 🤫</button>
+        <div id="surprise-msg">I love you more than pizza! (And that's a lot) ❤️🍕</div>
 
-            <div class="message-card">
-                <p class="message-text">
-                    To the most amazing person in my life! 🥰 Every moment with you is a treasure, 
-                    and today is all about celebrating YOU! ❤️
-                </p>
-                <p class="message-text">
-                    You make every day brighter with your smile, your laughter, and your love. 
-                    I'm so grateful to have you in my life! 🌟
-                </p>
-                <p class="message-love font-caveat">
-                    I love you more than words can say! 💕✨🎉
-                </p>
-            </div>
-
-            <h3 class="memories-title font-fredoka">Our Memories 📸</h3>
-            
-            <div class="photos-container">
-                <div class="polaroid-wrapper">
-                    <div class="polaroid polaroid-1">
-                        <img src="https://customer-assets.emergentagent.com/job_jyotsana-do-you-love/artifacts/aa61o1xz_11887.jpg" alt="Us together">
-                    </div>
-                    <p class="photo-caption font-caveat">Us 💕</p>
-                </div>
-                
-                <div class="polaroid-wrapper">
-                    <div class="polaroid polaroid-2">
-                        <img src="https://customer-assets.emergentagent.com/job_jyotsana-do-you-love/artifacts/ip51c1rq_11041.jpg" alt="Our connection">
-                    </div>
-                    <p class="photo-caption font-caveat">Forever 💗</p>
-                </div>
-            </div>
-
-            <div class="final-message">
-                <p class="final-title font-fredoka">
-                    Wishing you the happiest birthday ever! 🎊🎈🎁
-                </p>
-                <p class="final-text">
-                    May all your dreams come true! ✨💖
-                </p>
-            </div>
+        <div style="margin-top: 25px; font-size: 0.8rem; color: #888;">
+            Made with ❤️ by your favorite person
         </div>
     </div>
 
     <script>
-        // Create floating hearts
-        function createFloatingHearts(containerId) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            
-            for (let i = 0; i < 15; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.textContent = '💖';
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.animationDuration = (8 + Math.random() * 4) + 's';
-                heart.style.fontSize = (1.5 + Math.random() * 2) + 'rem';
-                container.appendChild(heart);
-            }
+        function showSurprise() {
+            const msg = document.getElementById('surprise-msg');
+            msg.style.display = 'block';
+            const btn = document.querySelector('.btn-surprise');
+            btn.innerHTML = "Yay! 🎉";
         }
-
-        // Initialize hearts for question and birthday pages
-        createFloatingHearts('hearts-1');
-        createFloatingHearts('hearts-2');
-
-        // Page navigation functions
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-        }
-
-        function showBirthdayPage() {
-            showPage('birthday-page');
-        }
-
-        function showRejectionPage() {
-            showPage('rejection-page');
-            setTimeout(() => {
-                showPage('question-page');
-            }, 3000);
-        }
-
-        // Initial page
-        showPage('question-page');
     </script>
 </body>
 </html>
